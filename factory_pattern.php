@@ -39,3 +39,20 @@ class CommonManager{
 $comms = new CommonManager(CommonManager XML);
 $appEncoder = $comms->getEncoder();
 print $appEncoder->encode();
+
+/*更进一步来分析:如果我们需要增加编码格式的输出，那么这里显然就不试用了*/
+abstract class CommonManager{
+  abstract function getEncode();
+}
+
+class JsonCommonManager extends CommonManager{
+  function get Encode(){
+    return new JsonEncode; 
+  }
+}
+  
+class XmlCommonManager extends CommonManager{
+  function getEncode(){
+    return new XmlEncode();
+  }
+}
